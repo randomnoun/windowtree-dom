@@ -2,7 +2,7 @@
 
 Expose the window hierarchy in WIndows™ as an XML document
 
-There's only one class of note in this project: [WindowTreeDom](src/main/java/com/randomnoun/common/jna/WindowTreeDomTest.java], which has a blog writeup [here](http://www.randomnoun.com/wp/2012/12/26/automating-windows-from-java-and-windowtreedom/).
+There's only one class of note in this project: [WindowTreeDom](src/main/java/com/randomnoun/common/jna/WindowTreeDomTest.java), which has a blog writeup [here](http://www.randomnoun.com/wp/2012/12/26/automating-windows-from-java-and-windowtreedom/).
 
 The idea behind it was that it was easier to query and interrogate an XML DOM rather than navigating the windows™ windows hierarchy directly as XML has things like XPath. The XML DOM was a read-only view of that hierarchy.
 
