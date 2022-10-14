@@ -1,0 +1,232 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.randomnoun.db</groupId>
+    <artifactId>windowtree-dom</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <parent>
+        <artifactId>parent-pom</artifactId>
+        <groupId>com.randomnoun.build</groupId>
+        <version>1.26</version>
+    </parent>
+
+    <packaging>jar</packaging>
+    <name>windowtree-dom</name>
+    <url>http://www.randomnoun.com/maven.html</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.randomnoun.common</groupId>
+            <artifactId>log4j-one</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.randomnoun.common</groupId>
+            <artifactId>common-public</artifactId>
+            <version>1.0.10</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-expression</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context-support</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-orm</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-oxm</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc-portlet</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-httpclient</groupId>
+                    <artifactId>commons-httpclient</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.ccil.cowan.tagsoup</groupId>
+                    <artifactId>tagsoup</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.randomnoun.common</groupId>
+                    <artifactId>jessop</artifactId>
+                </exclusion>
+                <exclusion>
+                	<groupId>org.springframework</groupId>
+                	<artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                	<groupId>org.springframework</groupId>
+                	<artifactId>spring-tx</artifactId>
+                </exclusion>
+                <exclusion>
+                	<groupId>org.springframework</groupId>
+                	<artifactId>spring-jdbc</artifactId>
+                </exclusion>
+                <exclusion>
+                	<groupId>org.apache.httpcomponents</groupId>
+                	<artifactId>httpclient</artifactId>
+                </exclusion>
+                <exclusion>
+                	<groupId>jakarta.mail</groupId>
+                	<artifactId>jakarta.mail-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+        </dependency>
+        
+
+        
+    </dependencies>
+
+    <ciManagement>
+        <system>bamboo</system>
+        <url>https://bamboo.dev.randomnoun:8085/browse/RANDOMNOUN-EXPLAINTOIMAGE</url>
+    </ciManagement>
+    <inceptionYear>2022-07-22</inceptionYear>
+    <scm>
+        <connection>scm:git:http://gitlab.dev.randomnoun/randomnoun/windowtree-dom.git</connection>
+        <developerConnection>scm:git:http://gitlab.dev.randomnoun/randomnoun/windowtree-dom.git</developerConnection>
+        <url>http://gitlab.dev.randomnoun/randomnoun/windowtree-dom</url>
+        <tag>windowtree-dom-0.0.1</tag>
+    </scm>
+    <organization>
+        <name>randomnoun</name>
+        <url>http://www.randomnoun.com</url>
+    </organization>
+    <build>
+        <finalName>windowtree-dom</finalName>
+
+        <plugins>
+
+
+            <!-- 
+               in order to link to files containing javsacript from the README, 
+               need to also include those files in the site; these plugins copy from the test folder into the site folder
+               
+               also renames *.sql file to *.sql.txt so they can be viewed in a browser without displaying a download modal
+            -->   
+
+            <plugin>
+                <groupId>com.coderplus.maven.plugins</groupId>
+                <artifactId>copy-rename-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-readme</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>README.md</sourceFile>
+                            <destinationFile>src/site/markdown/index.md</destinationFile>
+                        </configuration>                    
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.9.1</version>
+                <configuration>
+                    <skipDeploy>true</skipDeploy>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.doxia</groupId>
+                        <artifactId>doxia-module-markdown</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <scmBranch>gh-pages</scmBranch>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- <failOnError>false</failOnError> -->
+                    <source>8</source>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+
+    <distributionManagement>
+        <site>
+            <id>gh-pages</id>
+            <name>github site</name>
+            <url>scm:git:http://gitlab.dev.randomnoun/randomnoun/windowtree-dom.git</url>
+        </site>
+    </distributionManagement>
+
+
+</project>
+        
