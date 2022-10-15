@@ -1,6 +1,6 @@
 # windowtree-dom
 
-Expose the window hierarchy in WIndows™ as an XML document
+Expose the window hierarchy in Windows™ as an XML document
 
 There's only one class of note in this project: [WindowTreeDom](https://github.com/randomnoun/windowtree-dom/blob/main/src/main/java/com/randomnoun/common/jna/WindowTreeDom.java), which has a blog writeup [here](http://www.randomnoun.com/wp/2012/12/26/automating-windows-from-java-and-windowtreedom/).
 
