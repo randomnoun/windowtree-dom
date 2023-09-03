@@ -1,3 +1,5 @@
+[![Maven Central](https://img.shields.io/maven-central/v/com.randomnoun.db/windowtree-dom.svg)](https://search.maven.org/artifact/com.randomnoun.db/windowtree-dom)
+
 # windowtree-dom
 
 Expose the window hierarchy in Windows™ as an XML document
