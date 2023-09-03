@@ -1,4 +1,4 @@
-[![Maven Central](https://img.shields.io/maven-central/v/com.randomnoun.db/windowtree-dom.svg)](https://search.maven.org/artifact/com.randomnoun.db/windowtree-dom)
+[![Maven Central](https://img.shields.io/maven-central/v/com.randomnoun.microsoft/windowtree-dom.svg)](https://search.maven.org/artifact/com.randomnoun.microsoft/windowtree-dom)
 
 # windowtree-dom
 
